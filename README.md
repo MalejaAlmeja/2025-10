@@ -1,4 +1,5 @@
 # Parcial Práctico 2
 
-- Nombre:
-- código:
+- Nombre: Luisa Gómez
+- código: 202222249
+

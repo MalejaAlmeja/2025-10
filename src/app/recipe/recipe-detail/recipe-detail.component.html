@@ -1,21 +1,71 @@
-<div class="recipe-detail">
-  <h2>{{ recipe.nombre }}</h2>
-  <img
-    class="recipe-detail-img"
-    [src]="recipe.imagen"
-    alt="{{ recipe.imagen }}"
-  />
-  <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
-  <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
-  <h3>Ingredientes</h3>
-  <app-ingredient-list
-    [ingredients]="recipe.ingredientes"
-  ></app-ingredient-list>
+<div class="container" *ngIf="recipe">
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="recipe.imagen"
+          class="img-fluid rounded-start recipe-detail-img"
+          [alt]="recipe.nombre"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{ recipe.nombre }}</h2>
+          <div class="mb-3">
+            <div class=""row-cols-1
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col">
+      
+                </div>
+                <div class="col">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/25/25314.png"
+                    alt="icono"
+                    width="30"
+                    height="30"
+                  />
+                </div>
+          
+            <span class="badge bg-secondary"
+              >Porciones:{{ recipe.porciones  }} </span
+            >
 
-  <h3>Pasos</h3>
-  <ol>
-    <li *ngFor="let step of recipe.pasos">
-      {{ step }}
-    </li>
-  </ol>
+
+            <span class="badge bg-secondary"
+              >Minutos:{{ recipe.tiempo_minutos }} </span
+            >
+
+
+
+            <span class="badge bg-primary ms-2"
+              >Dificultad: {{ recipe.dificultad }}</span>
+
+
+
+            <span class="badge bg-primary ms-2"
+              >Tipo:{{ recipe.tipo }}</span
+            >
+          </div>
+          </div>
+
+          <h3 class="h5">Ingredientes</h3>
+          <app-ingredient-list
+            [ingredients]="recipe.ingredientes"
+          ></app-ingredient-list>
+
+          <h3 class="h5 mt-4">Pasos</h3>
+          <ol class="list-group list-group-numbered mb-4">
+            <li class="list-group-item" *ngFor="let step of recipe.pasos">
+              {{ step }}
+            </li>
+          </ol>
+
+          <button class="btn btn-secondary" (click)="goBack()">
+            Volver al listado
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
